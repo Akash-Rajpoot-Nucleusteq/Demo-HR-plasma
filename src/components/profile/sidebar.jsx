@@ -4,6 +4,7 @@ import IMG01 from "../../assets/images/img-1.jpg";
 
 class Sidebar extends Component {
   render() {
+    const { profilePhoto, employeeName } = this.props;
     return (
       <aside className="sidebar sidebar-user">
         <div className="card ctm-border-radius shadow-sm">
@@ -33,7 +34,7 @@ class Sidebar extends Component {
           <div className="user-info">
             <div className="user-avatar mb-4">
               <img
-                src={IMG01}
+                src={profilePhoto ? profilePhoto : IMG01}
                 alt="User Avatar"
                 className="img-fluid rounded-circle"
                 width="100"
@@ -41,16 +42,16 @@ class Sidebar extends Component {
             </div>
             <div className="user-details">
               <h4>
-                <b>Welcome Archit</b>
+                <b>Welcome {employeeName ? employeeName : 'Maria'}</b>
               </h4>
-              <span className="ctm-text-sm">Employee-ID : N0-148 </span>
+              <span className="ctm-text-sm">Employee-ID : N0148 </span>
             </div>
           </div>
         </div>
         <div className="quicklink-sidebar-menu ctm-border-radius shadow-sm bg-white p-4 mb-4 card">
           <ul className="list-group">
             <NavLink
-              to="employment" 
+              to="employment"
               className="list-group-item text-center button-6"
               activeClassName="active"
             >
@@ -62,7 +63,7 @@ class Sidebar extends Component {
             >
               Detail
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="document"
               className="list-group-item text-center button-6"
             >
@@ -91,7 +92,7 @@ class Sidebar extends Component {
               className="list-group-item text-center button-6"
             >
               Settings
-            </NavLink>
+            </NavLink> */}
           </ul>
         </div>
       </aside>

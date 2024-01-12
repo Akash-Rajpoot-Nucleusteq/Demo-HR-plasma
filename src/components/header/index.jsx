@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/images/NT4-removebg-preview.png";
-import avatar from "../../assets/images/Profile Photo.jpg";
+// import avatar from "../../assets/images/Profile Photo.jpg";
 import { getCurrentUserDetails } from "../../authentication/auth";
+
+import avatar from "../../assets/images/Profile Photo.jpg";
+import RECRUITER from '../../assets/images/Prachi.png'
+import RECRUITER_MANAGER from '../../assets/images/Ankita.png'
+import CLIENT_MANAGER from '../../assets/images/Vishesh.png'
+import MANAGER from '../../assets/images/Jitendra.png'
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      storedData: JSON.parse(localStorage.getItem('data')) || {},
+    };
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+
   }
 
   render() {
@@ -29,17 +38,15 @@ class Header extends Component {
       case userDetails?.role === "Employee":
         navbar = [
           {
-            classContent: `mr-2 ${
-              "/employee/dashboard" === url ? "active" : ""
-            } `,
+            classContent: `mr-2 ${"/employee/dashboard" === url ? "active" : ""
+              } `,
             linkTo: "/employee/dashboard",
             linkIcon: "lnr lnr-home pr-0  pr-lg-1",
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${
-              "/employee/timesheet" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/employee/timesheet" === url ? "active" : ""
+              } `,
             linkTo: "/employee/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Timesheet",
@@ -51,9 +58,8 @@ class Header extends Component {
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${
-              "/employee/assignment" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/employee/assignment" === url ? "active" : ""
+              } `,
             linkTo: "/employee/assignment",
             linkIcon: "lnr lnr-apartment pr-0  pr-lg-1",
             linkContent: "Assignment",
@@ -65,9 +71,8 @@ class Header extends Component {
             linkContent: "Leave",
           },
           {
-            classContent: `mr-1 ${
-              "/employee/document" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/employee/document" === url ? "active" : ""
+              } `,
             linkTo: "/employee/document",
             linkIcon: "lnr lnr-book pr-0  pr-lg-1",
             linkContent: "Document",
@@ -77,9 +82,8 @@ class Header extends Component {
       case userDetails?.role === "Manager":
         navbar = [
           {
-            classContent: `mr-2 ${
-              "/manager/dashboard" === url ? "active" : ""
-            } `,
+            classContent: `mr-2 ${"/manager/dashboard" === url ? "active" : ""
+              } `,
             linkTo: "/manager/dashboard",
             linkIcon: "lnr lnr-home pr-0  pr-lg-1",
             linkContent: "Dashboard",
@@ -91,17 +95,15 @@ class Header extends Component {
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${
-              "/manager/timesheet" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/manager/timesheet" === url ? "active" : ""
+              } `,
             linkTo: "/manager/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Timesheet",
           },
           {
-            classContent: `mr-1 ${
-              "/manager/assignment" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/manager/assignment" === url ? "active" : ""
+              } `,
             linkTo: "/manager/assignment",
             linkIcon: "lnr lnr-apartment pr-0  pr-lg-1",
             linkContent: "Assignment",
@@ -113,9 +115,8 @@ class Header extends Component {
             linkContent: "Leave",
           },
           {
-            classContent: `mr-1 ${
-              "/manager/document" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/manager/document" === url ? "active" : ""
+              } `,
             linkTo: "/manager/document",
             linkIcon: "lnr lnr-book pr-0  pr-lg-1",
             linkContent: "Document",
@@ -125,33 +126,29 @@ class Header extends Component {
       case userDetails.role === "Recruiter":
         navbar = [
           {
-            classContent: `mr-2 ${
-              "/recruiter/dashboard" === url ? "active" : ""
-            } `,
+            classContent: `mr-2 ${"/recruiter/dashboard" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/dashboard",
             linkIcon: "lnr lnr-home pr-0  pr-lg-1",
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/assets" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/assets" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/timesheet" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/timesheet" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Timesheet",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/assignment" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/assignment" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/assignment",
             linkIcon: "lnr lnr-apartment pr-0  pr-lg-1",
             linkContent: "Assignment",
@@ -163,17 +160,22 @@ class Header extends Component {
             linkContent: "Leave",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/document" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/document" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/document",
             linkIcon: "lnr lnr-book pr-0  pr-lg-1",
             linkContent: "Document",
           },
           {
-            classContent: `mr-1 ${"/recruiter" === url ? "active" : ""} `,
-            linkTo: "/recruiter",
-            linkIcon: "lnr lnr-power-switch pr-0  pr-lg-1",
+            classContent: `mr-1 ${
+              // ("recruiter" === url) |
+              ("/recruiter/recent-onboarding" === url) |
+                ("/recruiter/new-onboarding" === url)
+                ? "active"
+                : ""
+              } `,
+            linkTo: "/recruiter/recent-onboarding",
+            linkIcon: "lnr lnr-user pr-0  pr-lg-1",
             linkContent: "Recruiter",
           },
         ];
@@ -181,59 +183,60 @@ class Header extends Component {
       case userDetails.role === "Recruiter Manager":
         navbar = [
           {
-            classContent: `mr-2 ${
-              "/recruiter/manager/dashboard" === url ? "active" : ""
-            } `,
+            classContent: `mr-2 ${"/recruiter/manager/dashboard" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/manager/dashboard",
             linkIcon: "lnr lnr-home pr-0  pr-lg-1",
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/manager/assets" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/manager/assets" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/manager/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/manager/timesheet" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/manager/timesheet" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/manager/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Timesheet",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/manager/assignment" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/manager/assignment" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/manager/assignment",
             linkIcon: "lnr lnr-apartment pr-0  pr-lg-1",
             linkContent: "Assignment",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/manager/leave" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/manager/leave" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/manager/leave",
             linkIcon: "lnr lnr-briefcase pr-0  pr-lg-1",
             linkContent: "Leave",
           },
           {
-            classContent: `mr-1 ${
-              "/recruiter/manager/document" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/recruiter/manager/document" === url ? "active" : ""
+              } `,
             linkTo: "/recruiter/manager/document",
             linkIcon: "lnr lnr-book pr-0  pr-lg-1",
             linkContent: "Document",
           },
           {
             classContent: `mr-1 ${
-              "/recruiter/manager" === url ? "active" : ""
-            } `,
-            linkTo: "/recruiter/manager",
-            linkIcon: "lnr lnr-power-switch pr-0  pr-lg-1",
+              // ("recruiter" === url) |
+              ("/recruiter/manager/recent-onboarding" === url) |
+                ("/recruiter/manager/new-onboarding" === url) |
+                ("/recruiter/manager/onboarding-approval" === url) |
+                ("/recruiter/manager/approval-history" === url) |
+                ("/recruiter/manager/onboarding-approval-form" === url)
+                ? "active"
+                : ""
+              }`,
+            linkTo: "/recruiter/manager/recent-onboarding",
+            linkIcon: "lnr lnr-user pr-0  pr-lg-1",
             linkContent: "Recruiter",
           },
         ];
@@ -241,9 +244,8 @@ class Header extends Component {
       case userDetails.role === "Client Manager":
         navbar = [
           {
-            classContent: `mr-2 ${
-              "/client/dashboard" === url ? "active" : ""
-            } `,
+            classContent: `mr-2 ${"/client/dashboard" === url ? "active" : ""
+              } `,
             linkTo: "/client/dashboard",
             linkIcon: "lnr lnr-home pr-0  pr-lg-1",
             linkContent: "Dashboard",
@@ -255,17 +257,15 @@ class Header extends Component {
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${
-              "/client/timesheet" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/client/timesheet" === url ? "active" : ""
+              } `,
             linkTo: "/client/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Timesheet",
           },
           {
-            classContent: `mr-1 ${
-              "/client/assignment" === url ? "active" : ""
-            } `,
+            classContent: `mr-1 ${"/client/assignment" === url ? "active" : ""
+              } `,
             linkTo: "/client/assignment",
             linkIcon: "lnr lnr-apartment pr-0  pr-lg-1",
             linkContent: "Assignment",
@@ -308,7 +308,8 @@ class Header extends Component {
                 <div className='user-block d-none d-lg-block'>
                   <div className='row align-items-center'>
                     <div className='col-lg-12 col-md-12 col-sm-12'>
-                      <div className='user-notification-block align-right d-inline-block'>
+                      
+                      {/* <div className='user-notification-block align-right d-inline-block'>
                         <div className='top-nav-search item-animated'>
                           <form>
                             <input
@@ -338,19 +339,29 @@ class Header extends Component {
                             </Link>
                           </li>
                         </ul>
-                      </div>
+                      </div> */}
+
                       <div className='user-info align-right dropdown d-inline-block header-dropdown'>
                         <a
                           href='#0'
                           data-toggle='dropdown'
                           className=' menu-style dropdown-toggle'>
-                          <div className='user-avatar d-inline-block'>
+                          {/* <div className='user-avatar d-inline-block'>
                             <img
                               src={avatar}
                               alt='user avatar'
                               className='rounded-circle img-fluid'
                               width='55'
                             />
+                          </div> */}
+                          <div className='user-avatar d-inline-block'>
+                            {this.state.storedData.role === 'Employee' && <img src={avatar} alt='user avatar' className='rounded-circle img-fluid' width='55' />}
+                            {this.state.storedData.role === 'Recruiter' && <img src={RECRUITER} alt='user avatar' className='rounded-circle img-fluid' width='55' />}
+                            {this.state.storedData.role === 'Recruiter Manager' && <img src={RECRUITER_MANAGER} alt='user avatar' className='rounded-circle img-fluid' width='55' />}
+                            {this.state.storedData.role === 'Client Manager' && <img src={CLIENT_MANAGER} alt='user avatar' className='rounded-circle img-fluid' width='55' />}
+                            {this.state.storedData.role === 'Manager' && <img src={MANAGER} alt='user avatar' className='rounded-circle img-fluid' width='55' />}
+                            {(this.state.storedData.role !== 'Recruiter Manager' && this.state.storedData.role !== 'Recruiter' && this.state.storedData.role !== 'Employee' && this.state.storedData.role !== 'Client Manager' && this.state.storedData.role !== 'Manager') &&
+                              <img src={dummyAvatar} alt='user avatar' className='rounded-circle img-fluid' width='55' />}
                           </div>
                         </a>
                         <div className='dropdown-menu notification-dropdown-menu shadow-lg border-0 p-3 m-0 dropdown-menu-right'>
@@ -362,7 +373,7 @@ class Header extends Component {
                               </span>
                             </span>
                           </Link>
-                          <Link
+                          {/* <Link
                             className='dropdown-item p-2'
                             to='profile-settings'>
                             <span className='media align-items-center'>
@@ -371,7 +382,7 @@ class Header extends Component {
                                 <span className='text-truncate'>Settings</span>
                               </span>
                             </span>
-                          </Link>
+                          </Link> */}
                           <Link className='dropdown-item p-2' to='/login'>
                             <span className='media align-items-center'>
                               <span className='lnr lnr-power-switch mr-3'></span>
@@ -576,28 +587,27 @@ class Header extends Component {
 
                       {(localStorage.getItem("userRole") === "Recruiter" ||
                         localStorage.getItem("userRole") ===
-                          "Recruiter Manager") && (
-                        <li
-                          className={`mr-1 ${
-                            ("recruiter" === url) |
-                            ("recent-onboarding" === url) |
-                            ("new-onboarding" === url) |
-                            ("onboarding-approval" === url) |
-                            ("approval-history" === url) |
-                            ("onboarding-approval-form" === url)
+                        "Recruiter Manager") && (
+                          <li
+                            className={`mr-1 ${("recruiter" === url) |
+                              ("recent-onboarding" === url) |
+                              ("new-onboarding" === url) |
+                              ("onboarding-approval" === url) |
+                              ("approval-history" === url) |
+                              ("onboarding-approval-form" === url)
                               ? "active"
                               : ""
-                          } `}>
-                          <Link
-                            to='/recruiter/recent-onboarding'
-                            className='btn-ctm-space text-dark'>
-                            <span className='lnr lnr-user pr-0  pr-lg-1'></span>
-                            <span className='d-none d-lg-inline'>
-                              Recruiter
-                            </span>
-                          </Link>
-                        </li>
-                      )}
+                              } `}>
+                            <Link
+                              to='/recruiter/recent-onboarding'
+                              className='btn-ctm-space text-dark'>
+                              <span className='lnr lnr-user pr-0  pr-lg-1'></span>
+                              <span className='d-none d-lg-inline'>
+                                Recruiter
+                              </span>
+                            </Link>
+                          </li>
+                        )}
                     </ul>
                   </div>
                 </div>

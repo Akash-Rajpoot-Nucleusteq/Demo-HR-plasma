@@ -31,9 +31,9 @@ const Details = lazy(() => import("./components/profile/details"));
 const Document = lazy(() => import("./components/documents/index"));
 //Recruiter
 // const Recruiter = lazy(() => import("./components/recruiter"));
-// const RecentOnboarding = lazy(() =>
-//   import("./components/recruiter/recentonboarding")
-// );
+const RecruiterRecentOnboarding = lazy(() =>
+  import("./components/recruiter/recentonboarding")
+);
 // const clientRecentOnboarding = lazy(() =>
 //   import("./components/account-management")
 // );
@@ -393,7 +393,7 @@ const AppUniversal = function (props) {
                         <img src={progress} alt='loading...' />
                       </div>
                     }>
-                    {/* <RecentOnboarding {...props} /> */}
+                    <RecruiterRecentOnboarding {...props} />
                   </Suspense>
                 )}
               />
@@ -839,6 +839,78 @@ const AppUniversal = function (props) {
                   </Suspense>
                 )}
               />
+              {/* Recruiter manager routs */}
+              <Route
+                path='/recruiter/manager/recent-onboarding'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <RecruiterRecentOnboarding />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/manager/new-onboarding'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <NewOnboarding />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/manager/onboarding-approval'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <OnboardingApproval />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/manager/onboarding-approval-form'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <OnboardingApprovalForm {...props}/>
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/manager/approval-history'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <ApprovalHistory />
+                  </Suspense>
+                )}
+              />
+
             </Route>
           )}
         </Switch>

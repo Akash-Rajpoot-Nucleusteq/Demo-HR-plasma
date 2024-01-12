@@ -5,7 +5,7 @@ export default class sidebar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            storedData: JSON.parse(localStorage.getItem('data')) || {},
         }
     }
 
@@ -33,10 +33,26 @@ export default class sidebar extends Component {
                 <div className="quicklink-sidebar-menu ctm-border-radius shadow-sm bg-white card">
                     <div className="card-body">
                         <div className="flex-column list-group" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <NavLink to="/recruiter/recent-onboarding" className="list-group-item text-center button-6" activeClassName="active">Recent onboarding</NavLink>
+
+
+                            {/* <NavLink to="/recruiter/recent-onboarding" className="list-group-item text-center button-6" activeClassName="active">Recent Onboarding</NavLink>
                             <NavLink to="/new-onboarding" className="list-group-item text-center button-6">New Onboarding</NavLink>
-                            {localStorage.getItem('userRole') === 'Recruiter Manager' && <NavLink to="/onboarding-approval" className="list-group-item text-center button-6">Onboarding approval</NavLink>}
-                            {localStorage.getItem('userRole') === 'Recruiter Manager' && <NavLink to="/approval-history" className="list-group-item text-center button-6">Approval History</NavLink>}
+                            {localStorage.getItem('userRole') === 'Recruiter Manager' && <NavLink to="/onboarding-approval"
+                                className={`list-group-item text-center button-6 ${location.pathname === '/recruiter/manager/onboarding-approval-form' ? 'active' : ''}`}
+                            >Pending Onboarding</NavLink>}
+                            {localStorage.getItem('userRole') === 'Recruiter Manager' && <NavLink to="/approval-history" className="list-group-item text-center button-6">Approval History</NavLink>} */}
+
+
+                            {this.state.storedData.role === 'Recruiter' && <NavLink to="/recruiter/recent-onboarding" className="list-group-item text-center button-6" activeClassName="active">Recent onboarding</NavLink>}
+                            {this.state.storedData.role === 'Recruiter' && <NavLink to="/recruiter/new-onboarding" className="list-group-item text-center button-6">New Onboarding</NavLink>}
+
+
+                            {this.state.storedData.role === 'Recruiter Manager' && <NavLink to="/recruiter/manager/recent-onboarding" className="list-group-item text-center button-6" activeClassName="active">Recent onboarding</NavLink>}
+                            {this.state.storedData.role === 'Recruiter Manager' && <NavLink to="/recruiter/manager/new-onboarding" className="list-group-item text-center button-6">New Onboarding</NavLink>}
+                            {this.state.storedData.role === 'Recruiter Manager' && <NavLink to="/recruiter/manager/onboarding-approval"
+                                className={`list-group-item text-center button-6 ${location.pathname === '/recruiter/manager/onboarding-approval-form' ? 'active' : ''}`}
+                            >Onboarding approval</NavLink>}
+                            {this.state.storedData.role === 'Recruiter Manager' && <NavLink to="/recruiter/manager/approval-history" className="list-group-item text-center button-6">Approval History</NavLink>}
                         </div>
                     </div>
                 </div>

@@ -7,12 +7,18 @@ import IMG02 from "../../../assets/images/img-2.jpg";
 import IMG03 from "../../../assets/images/img-3.jpg";
 import IMG04 from "../../../assets/images/img-4.jpg";
 import IMG05 from "../../../assets/images/img-5.jpg";
+import EMPLOYEE from '../../../assets/images/Profile Photo.jpg'
+import MANAGER from '../../../assets/images/Jitendra.png'
+import CLIENT_MANAGER from '../../../assets/images/Vishesh.png'
+import RECRUITER from '../../../assets/images/Prachi.png'
+import RECRUITER_MANAGER from '../../../assets/images/Ankita.png'
 
 class Employment extends Component {
   constructor(props) {
     super(props);
     this.state = {
       show: null,
+      storedData: JSON.parse(localStorage.getItem('data')) || {},
     };
   }
   handleClose = () => {
@@ -38,7 +44,11 @@ class Employment extends Component {
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-xl-3 col-lg-4 col-md-12 theiaStickySidebar'>
-              <Sidebar />
+              {this.state.storedData.role === "Employee" && <Sidebar employeeName={"Ashish"} profilePhoto={EMPLOYEE} />}
+              {this.state.storedData.role === "Manager" && <Sidebar employeeName={"Jitendra"} profilePhoto={MANAGER} />}
+              {this.state.storedData.role === "Client Manager" && <Sidebar employeeName={"Vishesh"} profilePhoto={CLIENT_MANAGER} />}
+              {this.state.storedData.role === "Recruiter" && <Sidebar employeeName={"Prachi"} profilePhoto={RECRUITER} />}
+              {this.state.storedData.role === "Recruiter Manager" && <Sidebar employeeName={"Ankita"} profilePhoto={RECRUITER_MANAGER} />}
             </div>
             <div className='col-xl-9 col-lg-8  col-md-12'>
               <div className='row'>
@@ -228,7 +238,7 @@ class Employment extends Component {
                           <b> 14 Jan 2023</b>
                         </p>
                         <p className='card-text mb-3'>
-                        <span className='text-primary'>Client Contract End Date  : </span>
+                          <span className='text-primary'>Client Contract End Date  : </span>
                           <b> 14 Jan 2023</b>
                         </p>
                       </div>
