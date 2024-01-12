@@ -1,0 +1,48 @@
+
+.table-wrapper {
+    width: 100%; 
+    overflow-x: auto;
+}
+
+.table-scroll {
+    overflow-y: hidden;
+    overflow-x: auto;
+    max-width: 100%; 
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+  }
+  
+  
+  .table thead th {
+    background-color: #f0f0f0; 
+    border: 1px solid #ddd; 
+  }
+  
+ 
+  .table tbody tr {
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  
+  .table tbody td {
+    border: 1px solid #ddd; 
+  }
+  
+ 
+  .table tbody td:nth-child(1), 
+  .table tbody td:nth-child(8),
+  .table tbody td:nth-child(15) {
+    background-color: #efffe8; 
+  }
+
+
+  .btn-custom {
+    width: 150px; 
+    height: 40px; 
+    margin-right: 10px; 
+}
+  

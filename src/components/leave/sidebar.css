@@ -1,0 +1,16 @@
+
+.ring-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* .ring-svg {
+    transform: rotate(-90deg);
+} */
+.leaves-text {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
