@@ -33,11 +33,11 @@
   }
   
  
-  .table tbody td:nth-child(1), 
+  /* .table tbody td:nth-child(1), 
   .table tbody td:nth-child(8),
   .table tbody td:nth-child(15) {
     background-color: #efffe8; 
-  }
+  } */
 
 
   .btn-custom {

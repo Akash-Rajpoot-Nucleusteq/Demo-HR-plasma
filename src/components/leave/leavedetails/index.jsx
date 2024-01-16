@@ -3,25 +3,25 @@ import { Table } from 'antd';
 
 
 class Leavedetails extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			showTable: null,
-			data:[
-        {id:1, ApplyDate:'05 May 2023', Duration: '2', LeaveType: 'Sick Leave', Status: 'Approved', Reason: 'Medical'},
-        {id:2, ApplyDate:'10 Jun 2023', Duration: '2', LeaveType: 'Paid Leave', Status: 'Pending', Reason: 'Vacation'},
-        {id:3, ApplyDate:'20 Aug 2023', Duration: '3', LeaveType: 'Paid Leave', Status: 'Approved', Reason: 'Family reasons'},
-        ],
-	
-        };
-        
-    }
-        render(){
+    constructor(props) {
+        super(props);
+        this.state = {
+            showTable: null,
+            data: [
+                { id: 1, ApplyDate: '05 May 2023', Duration: '2', LeaveType: 'Sick Leave', Status: 'Approved', Reason: 'Medical' },
+                { id: 2, ApplyDate: '10 Jun 2023', Duration: '2', LeaveType: 'Paid Leave', Status: 'Pending', Reason: 'Vacation' },
+                { id: 3, ApplyDate: '20 Aug 2023', Duration: '3', LeaveType: 'Paid Leave', Status: 'Approved', Reason: 'Family reasons' },
+            ],
 
-            const { data } = this.state
-            const columns = [
-                
-              {
+        };
+
+    }
+    render() {
+
+        const { data } = this.state
+        const columns = [
+
+            {
                 title: 'Apply Date',
                 dataIndex: 'ApplyDate',
             },
@@ -41,24 +41,24 @@ class Leavedetails extends Component {
                 title: 'Reason',
                 dataIndex: 'Reason'
             },
-                  
-        
-            ]
-    
-            return(
-               
-                           <Table className="table-striped"
-														style = {{overflowX : 'auto'}}
-														columns={columns}                 
-														// bordered
-														dataSource={data}
-														rowKey={record => record.id}
-														pagination={false} 
-														/>
-                                             
-            )
-        }
 
+
+        ]
+
+        return (
+
+            <Table className="table-striped"
+                style={{ overflowX: 'auto' }}
+                columns={columns}
+                // bordered
+                dataSource={data}
+                rowKey={record => record.id}
+                pagination={false}
+            />
+
+        )
     }
-    
-  export default Leavedetails;
+
+}
+
+export default Leavedetails;

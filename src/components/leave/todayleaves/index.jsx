@@ -79,8 +79,8 @@ class Todayleaves extends Component {
                     title: 'Action',
                     dataIndex: 'Action',
                     render: (text, record) => (            
-                        <a href="#0" className="btn btn-sm btn-outline-danger" onClick={()=>this.handleShow()}>
-                        <span className="lnr lnr-trash"></span> Delete
+                        <a href="#0" className="btn btn-danger ctm-border-radius text-white btn-sm" onClick={()=>this.handleShow()}>
+                        {/* <span className="lnr lnr-trash"></span>*/} Reject 
                     </a>
                       ), 
                   },

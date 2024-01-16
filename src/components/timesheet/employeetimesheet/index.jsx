@@ -6,45 +6,18 @@ const EmployeeTimesheetPage = () => {
     const [weeklyTimesheet, setWeeklyTimesheet] = useState([]);
     const [currentWeekStart, setCurrentWeekStart] = useState(new Date());
 
-    // const generateWeekDates = (startDate) => {
-    //     const weekDays = [];
-    //     for (let i = 0; i < 7; i++) {
-    //         const day = new Date(startDate);
-    //         day.setDate(startDate.getDate() + i);
-    //         weekDays.push({
-    //             date: day.toISOString().slice(0, 10),
-    //             day: day.toLocaleDateString('en-US', { weekday: 'short' }),
-    //         });
-    //     }
-    //     return weekDays;
-    // };
-
     const generateWeekDates = (startDate) => {
         const weekDays = [];
-        const options = { year: 'numeric', month: 'short', day: '2-digit' };
-        const formatter = new Intl.DateTimeFormat('en-US', options);
-    
         for (let i = 0; i < 7; i++) {
             const day = new Date(startDate);
             day.setDate(startDate.getDate() + i);
-            
-            const formattedDate = formatter.format(day);
-            const dayOfWeek = day.toLocaleDateString('en-US', { weekday: 'short' });
-    
-            const [month, dayOfMonth, year] = formattedDate.split(' ');
-            
-            const formattedDateString = `${year}-${month}-${dayOfMonth} (${dayOfWeek})`;
-    
             weekDays.push({
-                date: formattedDateString,
+                date: day.toISOString().slice(0, 10),
+                day: day.toLocaleDateString('en-US', { weekday: 'short' }),
             });
         }
         return weekDays;
     };
-    
-    
-    
-    
 
     useEffect(() => {
         const currentDate = new Date();
@@ -195,33 +168,21 @@ const EmployeeTimesheetPage = () => {
                                                     ))}
                                                 </tr>
                                                 <tr>
-                                                    <td>Time In</td>
+                                                    <td>Leave</td>
                                                     {week.days.map((day, idx) => (
                                                         <td key={idx}>
                                                             <input
-                                                                type="time"
-                                                                value={week.timeIn[idx]}
+                                                                type="text"
+                                                                value={week.tasks[idx]}
                                                                 onChange={(e) =>
-                                                                    handleTimeInChange(e, index, idx)
+                                                                    handleTaskChange(e, index, idx)
                                                                 }
                                                             />
                                                         </td>
                                                     ))}
                                                 </tr>
-                                                <tr>
-                                                    <td>Time Out</td>
-                                                    {week.days.map((day, idx) => (
-                                                        <td key={idx}>
-                                                            <input
-                                                                type="time"
-                                                                value={week.timeOut[idx]}
-                                                                onChange={(e) =>
-                                                                    handleTimeOutChange(e, index, idx)
-                                                                }
-                                                            />
-                                                        </td>
-                                                    ))}
-                                                </tr>
+                                               
+                                                
                                             </React.Fragment>
                                         ))}
                                     </tbody>
@@ -230,12 +191,20 @@ const EmployeeTimesheetPage = () => {
                                 </div>
                                 {/* submit button */}
                                 <div className="mt-3 d-flex justify-content-center">
-                                <button className="btn btn-success btn-custom" onClick={handleSubmit}>
-                                    Submit
-                                </button>
-                                <button className="btn btn-secondary btn-custom" onClick={handleEdit}>
-                                    Edit
-                                </button>
+                                   <div className="text-center">
+                                        <a
+                                            href="#0"
+                                            className="btn btn-theme button-1 text-white ctm-border-radius mt-4"
+                                        >
+                                            Apply
+                                        </a>
+                                        <a
+                                            href="#0"
+                                            className="btn btn-danger text-white ctm-border-radius mt-4"
+                                        >
+                                            Cancel
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -247,3 +216,7 @@ const EmployeeTimesheetPage = () => {
 };
 
 export default EmployeeTimesheetPage;
+
+
+
+

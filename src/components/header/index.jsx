@@ -52,7 +52,7 @@ class Header extends Component {
             linkContent: "Timesheet",
           },
           {
-            classContent: `mr-1 ${"/employee/assets" === url ? "active" : ""} `,
+            classContent: `mr-1 ${url.includes("/employee/assets") ? "active" : ""} `,
             linkTo: "/employee/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
@@ -89,13 +89,13 @@ class Header extends Component {
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${"/manager/assets" === url ? "active" : ""} `,
+            classContent: `mr-1 ${url.includes("/manager/assets") ? "active" : ""} `,
             linkTo: "/manager/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${"/manager/timesheet" === url ? "active" : ""
+            classContent: `mr-1 ${url.includes("/manager/timesheet") ? "active" : ""
               } `,
             linkTo: "/manager/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
@@ -133,14 +133,14 @@ class Header extends Component {
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${"/recruiter/assets" === url ? "active" : ""
-              } `,
+            
+            classContent: `mr-1 ${url.includes("/recruiter/assets") ? "active" : "" } `,
             linkTo: "/recruiter/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${"/recruiter/timesheet" === url ? "active" : ""
+            classContent: `mr-1 ${ url.includes("/recruiter/timesheet") ? "active" : ""
               } `,
             linkTo: "/recruiter/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
@@ -190,14 +190,14 @@ class Header extends Component {
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${"/recruiter/manager/assets" === url ? "active" : ""
+            classContent: `mr-1 ${url.includes("/recruiter/manager/assets") ? "active" : ""
               } `,
             linkTo: "/recruiter/manager/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${"/recruiter/manager/timesheet" === url ? "active" : ""
+            classContent: `mr-1 ${ url.includes("/recruiter/manager/timesheet") ? "active" : ""
               } `,
             linkTo: "/recruiter/manager/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
@@ -251,13 +251,13 @@ class Header extends Component {
             linkContent: "Dashboard",
           },
           {
-            classContent: `mr-1 ${"/client/assets" === url ? "active" : ""} `,
+            classContent: `mr-1 ${url.includes("/client/assets") ? "active" : ""} `,
             linkTo: "/client/assets",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",
             linkContent: "Assets",
           },
           {
-            classContent: `mr-1 ${"/client/timesheet" === url ? "active" : ""
+            classContent: `mr-1 ${ url.includes("/client/timesheet") ? "active" : ""
               } `,
             linkTo: "/client/timesheet",
             linkIcon: "lnr lnr-calendar-full pr-lg-1",

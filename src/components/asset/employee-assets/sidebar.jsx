@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { getCurrentUserDetails } from '../../authentication/auth';
+import { getCurrentUserDetails } from '../../../authentication/auth';
 const Sidebar = () => {
 
 	const userDetails = getCurrentUserDetails();
@@ -40,7 +39,7 @@ const Sidebar = () => {
 
 					{userDetails.role === 'Manager' && (
 						<>
-							<NavLink to="/manager/assets" className="list-group-item text-center button-6" activeClassName="active">
+							<NavLink exact to="/manager/assets" className="list-group-item text-center button-6" activeClassName="active">
 								My Asset
 							</NavLink>
 							<NavLink to="/manager/assets/employee" className="list-group-item text-center button-6" activeClassName="active">
@@ -51,7 +50,7 @@ const Sidebar = () => {
 
 					{userDetails.role === 'Recruiter' && (
 						<>
-							<NavLink to="/recruiter/assets" className="list-group-item text-center button-6" activeClassName="active">
+							<NavLink exact to="/recruiter/assets" className="list-group-item text-center button-6" activeClassName="active">
 								My Asset
 							</NavLink>
 							<NavLink to="/recruiter/assets/employee" className="list-group-item text-center button-6" activeClassName="active">
@@ -62,7 +61,7 @@ const Sidebar = () => {
 
 					{userDetails.role === 'Recruiter Manager' && (
 						<>
-							<NavLink to="/recruiter/manager/assets" className="list-group-item text-center button-6" activeClassName="active">
+							<NavLink exact to="/recruiter/manager/assets" className="list-group-item text-center button-6" activeClassName="active">
 								My Asset
 							</NavLink>
 							<NavLink to="/recruiter/manager/assets/employee" className="list-group-item text-center button-6" activeClassName="active">
@@ -73,7 +72,7 @@ const Sidebar = () => {
 
 					{userDetails.role === 'Client Manager' && (
 						<>
-							<NavLink to="/client/assets" className="list-group-item text-center button-6" activeClassName="active">
+							<NavLink exact to="/client/assets" className="list-group-item text-center button-6" activeClassName="active">
 								My Asset
 							</NavLink>
 							<NavLink to="/client/assets/employee" className="list-group-item text-center button-6" activeClassName="active">
@@ -81,8 +80,6 @@ const Sidebar = () => {
 							</NavLink>
 						</>
 					)}
-
-
 
 				</div>
 			</div>
