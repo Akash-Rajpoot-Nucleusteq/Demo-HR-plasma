@@ -1,7 +1,8 @@
 import React from "react";
 import SideBar from "../sideBar";
 import { Table } from "antd";
-export const Allocation = () => {
+
+ const Allocation = () => {
   const columns = [
     {
       title: "S.no",
@@ -106,3 +107,5 @@ export const Allocation = () => {
     </div>
   );
 };
+
+export default Allocation;

@@ -282,6 +282,13 @@ class Header extends Component {
             linkIcon: "lnr lnr-book pr-0  pr-lg-1",
             linkContent: "Document",
           },
+          {
+            classContent: `mr-1 ${"/client/recent-onboarding" === url ? "active" : ""} `,
+            linkTo: "/client/recent-onboarding",
+            linkIcon: "lnr lnr-sync pr-0  pr-lg-1",
+            linkContent: "Account",
+          },
+          
         ];
         break;
       default:

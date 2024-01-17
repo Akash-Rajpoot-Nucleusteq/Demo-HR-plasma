@@ -17,6 +17,10 @@ import { ClientManagerRoute } from "./routes/client-manager-route";
 import { RecruiterManagerRoute } from "./routes/recruiter-manager-route";
 
 
+//import Assignment from "./components/assignment/Assignment";
+import { AccountManagementRecentOnboarding } from "./components/account-management";
+
+
 const Customer = lazy(() => import("./components/customer"));
 const AddClient = lazy(() => import("./components/customer/add-client"));
 const ActiveClient = lazy(() => import("./components/customer/active-client"));
@@ -774,7 +778,9 @@ const AppUniversal = function (props) {
                       <div id='loader-wrapper'>
                         <img src={progress} alt='loading...' />
                       </div>
-                    }></Suspense>
+                    }>
+                      <AccountManagementRecentOnboarding />
+                    </Suspense>
                 )}
               />
               <Route
@@ -806,7 +812,7 @@ const AppUniversal = function (props) {
                 )}
               />
               <Route
-                path='/client/add'
+                path='/client/customer-add'
                 exact
                 render={(props) => (
                   <Suspense
@@ -820,7 +826,7 @@ const AppUniversal = function (props) {
                 )}
               />
               <Route
-                path='/client/active'
+                path='/client/client-active'
                 exact
                 render={(props) => (
                   <Suspense

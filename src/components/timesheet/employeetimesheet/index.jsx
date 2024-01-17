@@ -23,7 +23,7 @@ const EmployeeTimesheetPage = () => {
         const currentDate = new Date();
         const today = currentDate.getDay();
         const weekStart = new Date(currentDate);
-        weekStart.setDate(currentDate.getDate() - today + (today === 0 ? -6 : 1)); 
+        weekStart.setDate(currentDate.getDate() - today + (today === 0 ? -6 : 1));
         const weekDays = [];
         for (let i = 0; i < 7; i++) {
             const day = new Date(weekStart);
@@ -38,7 +38,7 @@ const EmployeeTimesheetPage = () => {
             {
                 startDate: weekStart.toISOString().slice(0, 10),
                 days: weekDays,
-                tasks: ['', '', '', '', '', '', ''], 
+                tasks: ['', '', '', '', '', '', ''],
                 timeIn: ['', '', '', '', '', '', ''],
                 timeOut: ['', '', '', '', '', '', ''],
             },
@@ -65,14 +65,14 @@ const EmployeeTimesheetPage = () => {
     const handlePreviousWeek = () => {
         const prevWeekStartDate = new Date(currentWeekStart);
         prevWeekStartDate.setDate(currentWeekStart.getDate() - 7);
-    
-       
+
+
         prevWeekStartDate.setDate(prevWeekStartDate.getDate() - (prevWeekStartDate.getDay() + 6) % 7);
-    
+
         setCurrentWeekStart(prevWeekStartDate);
-    
+
         const weekDays = generateWeekDates(prevWeekStartDate);
-    
+
         setWeeklyTimesheet([
             {
                 startDate: prevWeekStartDate.toISOString().slice(0, 10),
@@ -83,18 +83,18 @@ const EmployeeTimesheetPage = () => {
             },
         ]);
     };
-    
+
     const handleNextWeek = () => {
         const nextWeekStartDate = new Date(currentWeekStart);
         nextWeekStartDate.setDate(currentWeekStart.getDate() + 7);
-    
-        
+
+
         nextWeekStartDate.setDate(nextWeekStartDate.getDate() - (nextWeekStartDate.getDay() + 6) % 7);
-    
+
         setCurrentWeekStart(nextWeekStartDate);
-    
+
         const weekDays = generateWeekDates(nextWeekStartDate);
-    
+
         setWeeklyTimesheet([
             {
                 startDate: nextWeekStartDate.toISOString().slice(0, 10),
@@ -107,13 +107,13 @@ const EmployeeTimesheetPage = () => {
     };
 
     const handleSubmit = () => {
-        
+
     };
 
     const handleEdit = () => {
-        
+
     };
-    
+
 
     return (
         <div className="page-wrapper">
@@ -128,70 +128,73 @@ const EmployeeTimesheetPage = () => {
                                 <h4 className="card-title mb-0">Employee Timesheet</h4>
                             </div>
                             <div className="card-body">
-                            <div className="week-navigation d-flex justify-content-between mb-3">
-                                <button className="btn btn-primary" onClick={handlePreviousWeek}>
-                                    Previous Week
-                                </button>
-                                <button className="btn btn-primary" onClick={handleNextWeek}>
-                                    Next Week
-                                </button>
-                            </div>  
-                            <div className="table-wrapper">
+                                <div className="week-navigation d-flex justify-content-between mb-3">
+                                    <button className="btn btn-primary" onClick={handlePreviousWeek}>
+                                        Previous Week
+                                    </button>
+                                    <button className="btn btn-primary" onClick={handleNextWeek}>
+                                        Next Week
+                                    </button>
+                                </div>
+                                <div className="table-wrapper">
                                     <div className="table-scroll">
-                                    <table className="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Week</th>
-                                            {weeklyTimesheet.length > 0 &&
-                                                weeklyTimesheet[0].days.map((day, idx) => (
-                                                    <th key={idx}>
-                                                        {`${day.date} (${day.day})`}
-                                                    </th>
+                                        <table className="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Week</th>
+                                                    {weeklyTimesheet.length > 0 &&
+                                                        weeklyTimesheet[0].days.map((day, idx) => (
+                                                            <th key={idx}  >
+                                                                <div className="date-cell">
+                                                                    <div>{day.date}</div>
+                                                                    <div>({day.day})</div>
+                                                                </div>
+                                                            </th>
+                                                        ))}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {weeklyTimesheet.map((week, index) => (
+                                                    <React.Fragment key={index}>
+                                                        <tr>
+                                                            <td>Task</td>
+                                                            {week.days.map((day, idx) => (
+                                                                <td key={idx}>
+                                                                    <input
+                                                                        type="number"
+                                                                        value={week.tasks[idx]}
+                                                                        onChange={(e) =>
+                                                                            handleTaskChange(e, index, idx)
+                                                                        }
+                                                                    />
+                                                                </td>
+                                                            ))}
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Leave</td>
+                                                            {week.days.map((day, idx) => (
+                                                                <td key={idx}>
+                                                                    <input
+                                                                        type="number"
+                                                                        value={week.tasks[idx]}
+                                                                        onChange={(e) =>
+                                                                            handleTaskChange(e, index, idx)
+                                                                        }
+                                                                    />
+                                                                </td>
+                                                            ))}
+                                                        </tr>
+
+
+                                                    </React.Fragment>
                                                 ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {weeklyTimesheet.map((week, index) => (
-                                            <React.Fragment key={index}>
-                                                <tr>
-                                                    <td>Task</td>
-                                                    {week.days.map((day, idx) => (
-                                                        <td key={idx}>
-                                                            <input
-                                                                type="text"
-                                                                value={week.tasks[idx]}
-                                                                onChange={(e) =>
-                                                                    handleTaskChange(e, index, idx)
-                                                                }
-                                                            />
-                                                        </td>
-                                                    ))}
-                                                </tr>
-                                                <tr>
-                                                    <td>Leave</td>
-                                                    {week.days.map((day, idx) => (
-                                                        <td key={idx}>
-                                                            <input
-                                                                type="text"
-                                                                value={week.tasks[idx]}
-                                                                onChange={(e) =>
-                                                                    handleTaskChange(e, index, idx)
-                                                                }
-                                                            />
-                                                        </td>
-                                                    ))}
-                                                </tr>
-                                               
-                                                
-                                            </React.Fragment>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                                 {/* submit button */}
                                 <div className="mt-3 d-flex justify-content-center">
-                                   <div className="text-center">
+                                    <div className="text-center">
                                         <a
                                             href="#0"
                                             className="btn btn-theme button-1 text-white ctm-border-radius mt-4"

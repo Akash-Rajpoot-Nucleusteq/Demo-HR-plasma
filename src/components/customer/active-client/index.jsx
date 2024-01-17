@@ -3,7 +3,7 @@ import SideBar from "../../account-management/sideBar";
 import { Toggle } from "../toggle/toggle";
 import { Table } from "antd";
 
-export const ActiveClient = () => {
+const ActiveClient = () => {
   const dummyData = [
     {
       SNo: 1,
@@ -118,3 +118,5 @@ export const ActiveClient = () => {
     </div>
   );
 };
+
+export default ActiveClient; 
