@@ -15,6 +15,12 @@ import { ManagerRoute } from "./routes/manager-route";
 import { RecruiterRotes } from "./routes/recruiter-route";
 import { ClientManagerRoute } from "./routes/client-manager-route";
 import { RecruiterManagerRoute } from "./routes/recruiter-manager-route";
+
+
+//import Assignment from "./components/assignment/Assignment";
+import { AccountManagementRecentOnboarding } from "./components/account-management";
+
+
 const Customer = lazy(() => import("./components/customer"));
 const AddClient = lazy(() => import("./components/customer/add-client"));
 const ActiveClient = lazy(() => import("./components/customer/active-client"));
@@ -49,8 +55,12 @@ const ApprovalHistory = lazy(() =>
 const OnboardingApprovalForm = lazy(() =>
   import("./components/recruiter/onboardingapprovalform")
 );
+// Assset
 const AssetsPage = lazy(() => import("./components/asset/index"));
-const TimesheetPage = lazy(() => import("./components/timesheet/index"));
+const EmployeeAssetsPage = lazy(() => import("./components/asset/employee-assets/index"));
+// Timesheet
+const PendingTimesheetPage = lazy(() => import("./components/timesheet/index"));
+const ApprovedTimesheetPage = lazy(() => import("./components/timesheet/timesheet-approved/index"));
 const EmployeeTimesheetPage = lazy(() =>
   import("./components/timesheet/employeetimesheet/index")
 );
@@ -65,6 +75,8 @@ const AppUniversal = function (props) {
           <Route path='/login' exact component={Login} />
           <Route path='/register' exact component={Register} />
           <Route path='/forgot-password' exact component={ForgotPassword} />
+
+          {/* employee route */}
           {userDetails?.role === "Employee" && (
             <Route path='/employee' element={<EmployeeRoutes />}>
               <Route
@@ -151,6 +163,7 @@ const AppUniversal = function (props) {
                   </Suspense>
                 )}
               />
+             
               <Route
                 path='/employee/timesheet'
                 exact
@@ -181,6 +194,8 @@ const AppUniversal = function (props) {
               />
             </Route>
           )}
+
+          {/* Manager Route */}
           {userDetails?.role === "Manager" && (
             <Route path='/manager' element={<ManagerRoute />}>
               <Route
@@ -267,8 +282,9 @@ const AppUniversal = function (props) {
                   </Suspense>
                 )}
               />
+              
               <Route
-                path='manager/timesheet/pending'
+                path='/manager/assets/employee'
                 exact
                 render={(props) => (
                   <Suspense
@@ -277,12 +293,12 @@ const AppUniversal = function (props) {
                         <img src={progress} alt='loading...' />
                       </div>
                     }>
-                    <TimesheetPage {...props} />
+                    <EmployeeAssetsPage {...props} />
                   </Suspense>
                 )}
               />
               <Route
-                path='manager/timesheet/approved'
+                path='/manager/timesheet/pending'
                 exact
                 render={(props) => (
                   <Suspense
@@ -291,7 +307,21 @@ const AppUniversal = function (props) {
                         <img src={progress} alt='loading...' />
                       </div>
                     }>
-                    <TimesheetPage {...props} />
+                    <PendingTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/manager/timesheet/approved'
+                exact
+                render={(props) => (
+                  <Suspense
+                  fallback={
+                    <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <ApprovedTimesheetPage {...props} />
                   </Suspense>
                 )}
               />
@@ -325,6 +355,8 @@ const AppUniversal = function (props) {
               />
             </Route>
           )}
+
+          {/* Recruiter route */}
           {userDetails?.role === "Recruiter" && (
             <Route path='/recruiter' element={<RecruiterRotes />}>
               <Route
@@ -352,6 +384,34 @@ const AppUniversal = function (props) {
                       </div>
                     }>
                     <EmployeeTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/timesheet/pending'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <PendingTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/timesheet/approved'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <ApprovedTimesheetPage {...props} />
                   </Suspense>
                 )}
               />
@@ -523,6 +583,20 @@ const AppUniversal = function (props) {
                   </Suspense>
                 )}
               />
+              <Route
+                path='/recruiter/assets/employee'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <EmployeeAssetsPage {...props} />
+                  </Suspense>
+                )}
+              />
             </Route>
           )}
           {userDetails?.role === "Client Manager" && (
@@ -566,6 +640,34 @@ const AppUniversal = function (props) {
                       </div>
                     }>
                     <EmployeeTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/client/timesheet/pending'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <PendingTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/client/timesheet/approved'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <ApprovedTimesheetPage {...props} />
                   </Suspense>
                 )}
               />
@@ -640,6 +742,20 @@ const AppUniversal = function (props) {
                 )}
               />
               <Route
+                path='/client/assets/employee'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <EmployeeAssetsPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
                 path='/client/employment'
                 exact
                 render={(props) => (
@@ -662,7 +778,9 @@ const AppUniversal = function (props) {
                       <div id='loader-wrapper'>
                         <img src={progress} alt='loading...' />
                       </div>
-                    }></Suspense>
+                    }>
+                      <AccountManagementRecentOnboarding />
+                    </Suspense>
                 )}
               />
               <Route
@@ -694,7 +812,7 @@ const AppUniversal = function (props) {
                 )}
               />
               <Route
-                path='/client/add'
+                path='/client/customer-add'
                 exact
                 render={(props) => (
                   <Suspense
@@ -708,7 +826,7 @@ const AppUniversal = function (props) {
                 )}
               />
               <Route
-                path='/client/active'
+                path='/client/client-active'
                 exact
                 render={(props) => (
                   <Suspense
@@ -812,6 +930,20 @@ const AppUniversal = function (props) {
                 )}
               />
               <Route
+                path='/recruiter/manager/assets/employee'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <EmployeeAssetsPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
                 path='/recruiter/manager/timesheet'
                 exact
                 render={(props) => (
@@ -822,6 +954,34 @@ const AppUniversal = function (props) {
                       </div>
                     }>
                     <EmployeeTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/manager/timesheet/pending'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <PendingTimesheetPage {...props} />
+                  </Suspense>
+                )}
+              />
+              <Route
+                path='/recruiter/manager/timesheet/approved'
+                exact
+                render={(props) => (
+                  <Suspense
+                    fallback={
+                      <div id='loader-wrapper'>
+                        <img src={progress} alt='loading...' />
+                      </div>
+                    }>
+                    <ApprovedTimesheetPage {...props} />
                   </Suspense>
                 )}
               />

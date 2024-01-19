@@ -8,7 +8,7 @@ class Holiday extends Component {
             showTable: null,
             data:[
                 { Date: '01 Jan 2024', HolidayName: 'New Year'},
-                { Date: '14 Feb 2024', HolidayName: 'Valentine\'s Day'},
+                { Date: '26 Jan 2024', HolidayName: 'Republic Day'},
                 { Date: '25 Dec 2024', HolidayName: 'Christmas'},
             ],
         };

@@ -4,7 +4,7 @@ import { Toggle } from "../toggle/toggle";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useState } from "react";
 
-export const AddClient = () => {
+ const AddClient = () => {
   const [formData, setFormData] = useState({
     // Client Information
     clientName: "",
@@ -416,3 +416,5 @@ export const AddClient = () => {
     </div>
   );
 };
+
+export default AddClient;

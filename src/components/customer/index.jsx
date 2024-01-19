@@ -2,7 +2,7 @@ import React from "react";
 import SideBar from "../account-management/sideBar";
 import { Table } from "antd";
 import { Toggle } from "./toggle/toggle";
-export const Customer = () => {
+ const Customer = () => {
   const dummyData = [
     {
       SNo: 1,
@@ -117,3 +117,4 @@ export const Customer = () => {
     </div>
   );
 };
+export default Customer;

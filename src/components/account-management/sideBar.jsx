@@ -37,21 +37,21 @@ const SideBar = () => {
             role='tablist'
             aria-orientation='vertical'>
             <NavLink
-              to='/client-manager/recent-onboarding'
+              to='/client/recent-onboarding'
               className='list-group-item text-center button-6'
               activeClassName='active'
               onClick={() => handleNavLinkClick("Recent Onboarding")}>
-              Recent Onboarding
+              Available Pool
             </NavLink>
             <NavLink
-              to='/client-manager/customer'
+              to='/client/customer'
               className='list-group-item text-center button-6'
               activeClassName='active'
               onClick={() => handleNavLinkClick("active")}>
               Customer
             </NavLink>
             <NavLink
-              to='/client-manager/allocation'
+              to='/client/allocation'
               className='list-group-item text-center button-6'
               activeClassName='active'
               onClick={() => handleNavLinkClick("Allocations")}>
