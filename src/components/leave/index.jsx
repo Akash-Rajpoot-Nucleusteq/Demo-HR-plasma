@@ -202,7 +202,7 @@ const Leave = () => {
                 <div className="col-md-12">
                   <div className="card ctm-border-radius shadow-sm">
                     <div className="card-header">
-                      <h4 className="card-title mb-0">Leaves Approval</h4>
+                      <h4 className="card-title mb-0">Leaves To Approve</h4>
                     </div>
                     <div className="card-body">
                       <div className="employee-office-table">
@@ -220,7 +220,7 @@ const Leave = () => {
                 <div className="col-md-12">
                   <div className="card ctm-border-radius shadow-sm">
                     <div className="card-header">
-                      <h4 className="card-title mb-0">Approved Leaves</h4>
+                      <h4 className="card-title mb-0">Approved Leaves History</h4>
                     </div>
                     <div className="card-body">
                       <div className="employee-office-table">

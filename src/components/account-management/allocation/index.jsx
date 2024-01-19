@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import SideBar from "../sideBar";
 import { Table } from "antd";
+import {  Modal } from "react-bootstrap";
+import EmployeeDetailModal from "../employee-detail/index";
 
  const Allocation = () => {
   const columns = [
@@ -44,6 +46,14 @@ import { Table } from "antd";
       dataIndex: "status",
       key: "status",
     },
+
+    {
+      title: 'View',
+      dataIndex: 'view',
+      render: (text, record) => (
+        <a href="#0" className="btn btn-theme ctm-border-radius text-white btn-sm" onClick={handleRowClick}>Detail</a>
+      ),
+    },
   ];
 
   const dummyData = [
@@ -70,6 +80,22 @@ import { Table } from "antd";
       status: "Inactive",
     },
   ];
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+
+  const handleRowClick = (employee) => {
+    setSelectedEmployee(employee);
+    setShowModal(true);
+  };
+
+ 
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    setSelectedEmployee(null);
+  };
+
   return (
     <div className='page-wrapper'>
       <div className='container-fluid'>
@@ -104,6 +130,26 @@ import { Table } from "antd";
           </div>
         </div>
       </div>
+
+      <Modal show={showModal} onHide={handleModalClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Employee Detail Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        {selectedEmployee && (
+            <EmployeeDetailModal employee={selectedEmployee} />
+        )}
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            type="button"
+            className="btn btn-theme button-1 ctm-border-radius text-white text-center mb-2"
+            onClick={handleModalClose}
+          >
+            Back
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
