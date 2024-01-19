@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Sidebar from '../sidebar'
 import OnboardingApprovalTable from '../employeetable/onboardingApprovalTable'
-
+import CommonTable from '../employeetable/commonTable'
 export default class index extends Component {
     constructor(props) {
         super(props);
@@ -35,7 +35,7 @@ export default class index extends Component {
                     passport: '',
                     workAuthorization: '',
 
-                    
+
                 },
                 {
                     firstName: 'Akash',
@@ -261,6 +261,44 @@ export default class index extends Component {
                     passport: '',
                     workAuthorization: '',
                 },
+            ],
+
+            column: [
+                {
+                    title: 'Employee Id',
+                    dataIndex: 'employeeId',
+                    key: 'employeeId',
+                },
+                {
+                    title: 'First Name',
+                    dataIndex: 'firstName',
+                    key: 'firstName',
+                },
+                {
+                    title: 'Last Name',
+                    dataIndex: 'lastName',
+                    key: 'lastName',
+                },
+                {
+                    title: 'Start Date',
+                    dataIndex: 'employmentStartDate',
+                    key: 'employemntStartDate',
+                },
+                {
+                    title: 'Phone Number',
+                    dataIndex: 'phoneNumber',
+                    key: 'phoneNumber',
+                },
+                {
+                    title: 'State',
+                    dataIndex: 'state',
+                    key: 'state',
+                },
+                {
+                    title: 'City',
+                    dataIndex: 'city',
+                    key: 'city',
+                },
             ]
         }
     }
@@ -273,9 +311,11 @@ export default class index extends Component {
                             <Sidebar />
                         </div>
                         <div className="col-xl-9 col-lg-8  col-md-12">
-                            <div className="card shadow-sm ctm-border-radius">
+                            {/* <div className="card shadow-sm ctm-border-radius">
                                 <OnboardingApprovalTable tableData={this.state.tableData} tabPageName={'approvalHistory'} />
-                            </div>
+                            </div> */}
+
+                            <CommonTable data={this.state.tableData} columns={this.state.column} tableTitle={'Approval History'} rowClickable={true} />
                         </div>
                     </div>
                 </div>

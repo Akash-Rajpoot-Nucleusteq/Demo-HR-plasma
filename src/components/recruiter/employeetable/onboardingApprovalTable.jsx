@@ -39,17 +39,17 @@ export default function onboardingApprovalTable({ tableData, tabPageName }) {
 
                             <th>Phone Number</th>
                             {/* <th>Address Line 1</th>
-                        <th>Address Line 2</th>
-                    <th>Country</th> */}
+                            <th>Address Line 2</th>
+                            <th>Country</th> */}
                             <th>State</th>
                             <th>City</th>
                             {/* <th>Zipcode</th>
-                        <th>Visa Status</th>
-                        <th>Citizenship</th>
-                        <th>Employment Nature</th>
-                        <th>Contracting Rate</th>
-                        <th>Employment Company</th>
-                    <th>Working Remote</th> */}
+                            <th>Visa Status</th>
+                            <th>Citizenship</th>
+                            <th>Employment Nature</th>
+                            <th>Contracting Rate</th>
+                            <th>Employment Company</th>
+                            <th>Working Remote</th> */}
                             <th>Employment Start Date</th>
                             {/* <th>Role</th> */}
                             <th>Designation</th>
@@ -70,8 +70,9 @@ export default function onboardingApprovalTable({ tableData, tabPageName }) {
                                 {tabPageName && tabPageName === 'onboardingApproval' && <td>
                                     <span className='btn btn-theme button-1 text-dark ctm-border-radius btn-block mr-1'>
                                         <Link to={{
-                                            pathname: "/recruiter/manager/onboarding-approval-form",
+                                            pathname: "onboarding-approval-form",
                                             state: { employeeData: data }
+
                                         }}
                                             className=" btn-ctm-space text-white ">
                                             <span className="d-none d-lg-inline ">Approve/Reject</span>

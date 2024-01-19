@@ -108,8 +108,8 @@ performance: {
       new HtmlWebpackPlugin({
         template: "./public/index.html",
         filename: "./index.html",
-        favicon: './public/favicon.png'
-        // favicon: './public/favicon_nucleusteq_logo.jpg'
+        // favicon: './public/favicon.png'
+        favicon: './public/images/favicon_NT.jpg'
       }),
         new MiniCssExtractPlugin({ // plugin for controlling how compiled css will be outputted and named
             filename: "css/[name].css",

@@ -139,7 +139,7 @@ class Login extends Component {
                         href={this.state.gmailLink}
                         target='_blank'
                         rel='noopener noreferrer'>
-                        Contact Admininstrator
+                        Contact Administrator
                       </a>
                     </div>
                   </div>

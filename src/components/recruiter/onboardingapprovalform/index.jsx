@@ -42,7 +42,7 @@ export default class index extends Component {
                         <div className="col-xl-9 col-lg-8  col-md-12">
                             <div className="card shadow-sm ctm-border-radius">
                                 <div className='ctm-border-radius p-4'>
-                                    <EmployeeForm employeeData={this.state.employeeData} parentComponentName={'onboardingApprovalFormPage'} />
+                                    <EmployeeForm employeeData={this.state.employeeData} parentComponentName={'onboardingApprovalFormPage'}/>
                                 </div>
                             </div>
                         </div>

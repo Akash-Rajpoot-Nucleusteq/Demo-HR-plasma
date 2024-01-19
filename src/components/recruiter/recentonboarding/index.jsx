@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Sidebar from '../sidebar'
 import RecentOnboardingEmployeeTable from '../employeetable/recentOnboardingTable'
-// import CommonTable from '../employeetable/commonTable'
+import CommonTable from '../employeetable/commonTable'
 export default class RecruiterRecentOnboarding extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,7 @@ export default class RecruiterRecentOnboarding extends Component {
           phoneNumber: '19685254367',
           addressLine1: 'Om Nagar',
           addressLine2: '',
-          city: 'Rochester city',
+          city: 'Rochester City',
           state: 'New York',
           country: 'United States',
           zipCode: '492013',
@@ -29,7 +29,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -57,7 +57,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -85,7 +85,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -113,7 +113,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Manager',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -141,7 +141,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -169,7 +169,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -197,7 +197,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -225,7 +225,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -253,7 +253,7 @@ export default class RecruiterRecentOnboarding extends Component {
           role: 'Employee',
           designation: 'Engineer',
           skill: '',
-          employmentStatus: 'Draft',
+          employmentStatus: 'Active',
           photo: '',
           resume: '',
           passport: '',
@@ -311,11 +311,11 @@ export default class RecruiterRecentOnboarding extends Component {
               <Sidebar />
             </div>
             <div className="col-xl-9 col-lg-8  col-md-12">
-              <div className="card shadow-sm ctm-border-radius">
+              {/* <div className="card shadow-sm ctm-border-radius">
                 <RecentOnboardingEmployeeTable recentOnboardingData={this.state.RecentOnboardingData} />
-              </div>
+              </div> */}
 
-              {/* <CommonTable columns={this.state.column} data={this.state.RecentOnboardingData} /> */}
+              <CommonTable columns={this.state.column} data={this.state.RecentOnboardingData} tableTitle={'Recent Onboarding'} rowClickable={true}/>
             </div>
 
 
